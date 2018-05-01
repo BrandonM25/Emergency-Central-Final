@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 //import './Navbar.css'
 
 class NavbarWithIntro extends React.Component {
+
   
   constructor(props) {
     super(props);
