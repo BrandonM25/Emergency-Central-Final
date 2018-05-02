@@ -1,19 +1,24 @@
 {
   "name": "emergency-central",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
   "dependencies": {
+<<<<<<< HEAD
     "mdbreact": "^4.3.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4"
+=======
+    "express": "^4.16.2"
+>>>>>>> 6e1f9b706bf04fa57e52f9b556d19337219b6f25
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "concurrently": "^3.5.1"
   }
 }
