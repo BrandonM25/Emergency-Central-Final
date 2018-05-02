@@ -131,7 +131,7 @@ class NavbarRegister extends React.Component {
                             </div>
                             <div className="row mt-4">
                                 <div className="col-md-4">
-                                <Button color="danger" size="lg">Submit</Button>
+                                <Link to="/appHome" className="submitBtn"><Button color="danger" size="lg">Submit</Button></Link>
                                 </div>
                             </div>
                         </form>

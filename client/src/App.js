@@ -4,6 +4,7 @@ import './App.css';
 import Home from './pages/home';
 import App1 from './pages/app1';
 import Register from './pages/register';
+import AppHome from './pages/appHome';
 
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/app1" component={App1} />
           <Route path="/register" component={Register} />
+          <Route path="/appHome" component={AppHome} />
         </div>
       </Router>
     );
