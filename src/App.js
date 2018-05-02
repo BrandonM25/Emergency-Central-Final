@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/home';
 import App1 from './pages/app1';
+import Register from './pages/register';
 
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
         <div>
           <Route exact path="/" component={Home} />
           <Route path="/app1" component={App1} />
+          <Route path="/register" component={Register} />
         </div>
       </Router>
     );
