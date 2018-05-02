@@ -8,7 +8,7 @@ const twilioInfo = require('../config/twilio');
 const router = express.Router();
 
 const info = require("../models/info");
-const twilioNumb = '+1234567890';
+const twilioNumb = '+19319960010';
 
 // Line of code that handles the html routes or any invalid paths entered
 
@@ -41,6 +41,15 @@ router.post("/emergency", function (req, res) {
                 from: twilioNumb // From a valid Twilio number
             })
             .then((message) => console.log(message.sid));
+
+        client.calls
+            .create({
+                url: 'http://demo.twilio.com/docs/voice.xml',
+                from: twilioNumb,
+                to: emergServices
+            })
+            .then(call => console.log(call.sid))
+            .done();
     });
 });
 
