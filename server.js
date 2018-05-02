@@ -1,10 +1,22 @@
-const express = require('express');
+// Requiring in the necessary node packages
+var express = require("express");
+var bodyParser = require("body-parser");
 
-const app = express();
-const port = process.env.PORT || 5000;
+// Initializing express and establishing the port the listener will use
+var app = express();
+var PORT = process.env.PORT || 5000;
 
-app.get('/api/hello', (req, res) => {
-  res.send({ express: 'Hello From Express' });
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Establishing the bodyparser middleware to help parse json
+app.use(bodyParser.json());
+
+// Import routes and give the server access to them.
+var routes = require("./server/controllers/controllers.js");
+app.use("/", routes);
+
+// Listener
+app.listen(PORT, function() {
+    console.log("App listening on PORT: " + PORT);
 });
-
-app.listen(port, () => console.log(`Listening on port ${port}`));
