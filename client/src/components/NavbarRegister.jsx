@@ -139,7 +139,7 @@ class NavbarRegister extends React.Component {
 
                     </Container>
                 </header>
-            </div >
+            </div>
         );
     }
 }
