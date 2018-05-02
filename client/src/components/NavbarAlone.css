@@ -1,0 +1,7 @@
+.view {
+    background: no-repeat center center;
+    background-image: url("https://images.unsplash.com/photo-1507105306461-47f75f2da3aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c3a9226dabffa306b261ea52c55cc954&auto=format&fit=crop&w=1050&q=80");
+    background-size: cover;
+    height: 100vh;
+    margin-top: -56px;
+}

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, Container, Mask, View, Row, Col, Card, CardBody, CardImage, CardText, CardTitle, Button, Input } from 'mdbreact';
 import { Link } from 'react-router-dom';
-//import './Navbar.css'
+//import ButtonReg from './Button';
+import './NavbarAlone.css'
 
 class NavbarWithIntro extends React.Component {
+ 
 
     constructor(props) {
         super(props);
@@ -20,7 +22,7 @@ class NavbarWithIntro extends React.Component {
         });
     }
     render() {
-        const view = { background: 'url("https://images.unsplash.com/photo-1507105306461-47f75f2da3aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c3a9226dabffa306b261ea52c55cc954&auto=format&fit=crop&w=1950&q=80")no-repeat center center', backgroundSize: 'cover', height: '100vh', marginTop: '-56px' }
+        //const view = { background: 'url("https://images.unsplash.com/photo-1507105306461-47f75f2da3aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c3a9226dabffa306b261ea52c55cc954&auto=format&fit=crop&w=1950&q=80")no-repeat center center', backgroundSize: 'cover', height: '100vh', marginTop: '-56px' }
         return (
             <div>
                 <header>
@@ -56,7 +58,7 @@ class NavbarWithIntro extends React.Component {
                     </Navbar>
 
 
-                    <View style={view}>
+                    <div className='view'>
 
                         <Mask overlay="indigo-slight" style={{ flexDirection: 'column' }} className="flex-center text-center">
                             <Container className="animated slideInRight">
@@ -69,7 +71,9 @@ class NavbarWithIntro extends React.Component {
                                                     <Input label="Type your email" icon="envelope" group type="email" validate error="wrong" success="right" />
                                                     <Input label="Type your password" icon="lock" group type="password" validate />
                                                     <div className="text-center">
-                                                        <Button color="danger">Login</Button>
+                                                        <Link to="/register">
+                                                            <Button color="danger">Login</Button>
+                                                        </Link>
                                                     </div>
                                                 </form>
                                             </CardBody>
@@ -80,18 +84,14 @@ class NavbarWithIntro extends React.Component {
                                         <Card>
                                             <CardBody>
                                                 <h2 className="mb-5">Form register</h2>
-                                                <form>
-                                                    <div className="text-center">
-                                                        <Button color="danger">Sign up</Button>
-                                                    </div>
-                                                </form>
+                                                <Link to="/register" className="registerBtn"><Button color="danger">Register</Button></Link>
                                             </CardBody>
                                         </Card>
                                     </Col>
                                 </Row>
                             </Container>
                         </Mask>
-                    </View>
+                    </div>
                 </header>
             </div>
         );
