@@ -67,7 +67,7 @@ class NavbarHome extends React.Component {
 
                                     </Col>
                                     <Col className="col-md-4">
-                                    <Button size="lg" color="danger">Call 911</Button>
+                                    <div className="emerbtn"><h1>CALL 911</h1></div>
                                     </Col>
                                     <Col className="col-md-4">
 

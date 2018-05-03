@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './NavbarAlone.css'
 
 class NavbarWithIntro extends React.Component {
- 
+
 
     constructor(props) {
         super(props);
@@ -63,27 +63,26 @@ class NavbarWithIntro extends React.Component {
                         <Mask overlay="indigo-slight" style={{ flexDirection: 'column' }} className="flex-center text-center">
                             <Container className="animated slideInRight">
                                 <Row className="mt-5">
-                                    <Col className="col-md-4">
+                                    <Col className="col-md-8">
                                         <Card>
                                             <CardBody>
-                                                <h2 className="mb-5">Form login</h2>
+                                                <h2 className="mb-5">Login Here</h2>
                                                 <form>
-                                                    <Input label="Type your email" icon="envelope" group type="email" validate error="wrong" success="right" />
-                                                    <Input label="Type your password" icon="lock" group type="password" validate />
+                                                    <p className="h5 text-center mb-4">Sign in</p>
+                                                    <Input icon="envelope" label="Type your email" group type="email" validate error="wrong" success="right" />
+                                                    <Input icon="lock" label="Type your password" group type="password" validate />
                                                     <div className="text-center">
-                                                        <Link to="/register">
-                                                            <Button color="danger">Login</Button>
-                                                        </Link>
+                                                        <Button>Login</Button>
                                                     </div>
                                                 </form>
                                             </CardBody>
                                         </Card>
                                     </Col>
-                                    <Col className="col-md-4 white-text pt-5"><h2>OR</h2></Col>
+
                                     <Col className="col-md-4">
                                         <Card>
                                             <CardBody>
-                                                <h2 className="mb-5">Form register</h2>
+                                                <h2 className="mb-5">Register Here</h2>
                                                 <Link to="/register" className="registerBtn"><Button color="danger">Register</Button></Link>
                                             </CardBody>
                                         </Card>
