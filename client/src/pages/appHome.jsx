@@ -15,3 +15,4 @@ class AppHome extends Component {
 }
 
 export default AppHome;
+export const appHome = '/appHome';
