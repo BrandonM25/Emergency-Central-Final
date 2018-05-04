@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, Container, Mask, View, Row, Col, Card, CardBody, CardImage, CardText, CardTitle, Button, Input, Jumbotron, } from 'mdbreact';
-import { Link, 
-    withRouter, 
+import {
+    Link,
+    withRouter,
 } from 'react-router-dom';
 import { auth } from '../firebase';
 import * as homeRoute from '../pages/appHome';
@@ -16,10 +17,10 @@ const INITIAL_STATE = {
 
 const byPropKey = (propertyName, value) => () => ({ [propertyName]: value, })
 
-const RegisterNavbar = withRouter(({history}) =>
-<div>
-    <NavbarRegister history={history} />
-</div>
+const RegisterNavbar = withRouter(({ history }) =>
+    <div>
+        <NavbarRegister history={history} />
+    </div>
 )
 
 class NavbarRegister extends React.Component {
@@ -51,14 +52,14 @@ class NavbarRegister extends React.Component {
         } = this.props;
 
         auth.createUserWithEmailAndPassword(email, passwordOne)
-        .then(authUser => {
-            console.log(INITIAL_STATE);
-            this.setState(() => ({INITIAL_STATE}));
-            history.push(homeRoute.appHome);
-        })
-        .catch(error => {
-            this.setState(byPropKey('error', error));
-        });
+            .then(authUser => {
+                console.log(INITIAL_STATE);
+                this.setState(() => ({ INITIAL_STATE }));
+                history.push(homeRoute.appHome);
+            })
+            .catch(error => {
+                this.setState(byPropKey('error', error));
+            });
 
         event.preventDefault();
     }
@@ -66,7 +67,7 @@ class NavbarRegister extends React.Component {
 
     render() {
         const view = { background: 'url("https://images.unsplash.com/photo-1507105306461-47f75f2da3aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c3a9226dabffa306b261ea52c55cc954&auto=format&fit=crop&w=1950&q=80")no-repeat center center', backgroundSize: 'cover', height: '100vh', marginTop: '-56px' }
-        
+
         const {
             email,
             passwordOne,
@@ -144,16 +145,16 @@ class NavbarRegister extends React.Component {
                             <div className="row">
 
                                 <div className="col-md-6">
-                                    <Input label="Type your email" icon="envelope" group type="email" validate error="wrong" success="right" value={email} onChange={event => this.setState(byPropKey('email', event.target.value))}/>
+                                    <Input label="Type your email" icon="envelope" group type="email" validate error="wrong" success="right" value={email} onChange={event => this.setState(byPropKey('email', event.target.value))} />
                                 </div>
 
 
                                 <div className="col-md-6">
-                                    <Input label="Type your password" icon="lock" group type="password" validate value={passwordOne} onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}/>
+                                    <Input label="Type your password" icon="lock" group type="password" validate value={passwordOne} onChange={event => this.setState(byPropKey('passwordOne', event.target.value))} />
                                 </div>
 
                                 <div className="col-md-6">
-                                    <Input label="Confirm your password" icon="lock" group type="password" validate value={passwordTwo} onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}/>
+                                    <Input label="Confirm your password" icon="lock" group type="password" validate value={passwordTwo} onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))} />
                                 </div>
                             </div>
                             <div className="row">
