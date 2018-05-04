@@ -12,7 +12,8 @@
     "firebase": "^4.13.1",
     "mysql": "^2.15.0",
     "path": "^0.12.7",
-    "twilio": "^3.16.0"
+    "twilio": "^3.16.0",
+    "concurrently": "^3.5.1"
   },
   "devDependencies": {
     "concurrently": "^3.5.1"
