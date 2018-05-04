@@ -5,7 +5,7 @@ import Home from './pages/home';
 import App1 from './pages/app1';
 import Register from './pages/register';
 import AppHome from './pages/appHome';
-
+import withAuthentication from './withAuthentication';
 
 class App extends Component {
   render() {
@@ -22,4 +22,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withAuthentication(App);

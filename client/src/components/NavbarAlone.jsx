@@ -7,6 +7,7 @@ import { Link,
 import './NavbarAlone.css'
 import { auth } from '../firebase';
 import * as homeRoute from '../pages/appHome';
+import AuthUserContext from '../AuthUserContext';
 
 const superNavbar = withRouter(({ history }) =>
     <div>
@@ -90,7 +91,12 @@ class NavbarWithIntro extends React.Component {
                                         <Link className="nav-link" to="/">Home</Link>
                                     </NavItem>
                                     <NavItem active>
-                                        <Link className="nav-link" to="/app1">App</Link>
+                                        <AuthUserContext.Consumer>
+                                            {authUser => authUser
+                                            ?<Link className="nav-link" to="/appHome">App</Link>
+                                            :<Link className="nav-link" to="/app1">App</Link>
+                                            }
+                                        </AuthUserContext.Consumer>
                                     </NavItem>
                                 </NavbarNav>
                                 <NavbarNav right>
