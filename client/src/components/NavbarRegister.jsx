@@ -91,19 +91,13 @@ class NavbarRegister extends React.Component {
                                     <NavItem active>
                                         <Link className="nav-link" to="/">Home</Link>
                                     </NavItem>
-                                    <NavItem>
+                                    <NavItem active>
                                         <Link className="nav-link" to="/app1">App</Link>
                                     </NavItem>
                                 </NavbarNav>
                                 <NavbarNav right>
                                     <NavItem>
-                                        <NavLink to="#"><Fa icon="linkedin" /></NavLink>
-                                    </NavItem>
-                                    <NavItem>
                                         <NavLink to="#"><Fa icon="github" /></NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink to="#"><Fa icon="facebook" /></NavLink>
                                     </NavItem>
                                 </NavbarNav>
                             </Collapse>
