@@ -35,22 +35,16 @@ class NavbarHome extends React.Component {
                             {!this.state.isWideEnough && <NavbarToggler onClick={this.onClick} />}
                             <Collapse isOpen={this.state.collapse} navbar>
                                 <NavbarNav left>
-                                    <NavItem active>
+                                    <NavItem>
                                         <Link className="nav-link" to="/">Home</Link>
                                     </NavItem>
-                                    <NavItem>
+                                    <NavItem active>
                                         <Link className="nav-link" to="/app1">App</Link>
                                     </NavItem>
                                 </NavbarNav>
                                 <NavbarNav right>
                                     <NavItem>
-                                        <NavLink to="#"><Fa icon="linkedin" /></NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink to="#"><Fa icon="github" /></NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink to="#"><Fa icon="facebook" /></NavLink>
+                                        <NavLink to="https://github.com/BrandonM25/Emergency-Central-Final"><Fa icon="github" /></NavLink>
                                     </NavItem>
                                 </NavbarNav>
                             </Collapse>

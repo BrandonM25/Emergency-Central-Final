@@ -43,13 +43,7 @@ class NavbarWithIntro extends React.Component {
                 </NavbarNav>
                 <NavbarNav right>
                   <NavItem>
-                    <NavLink to="#"><Fa icon="linkedin" /></NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink to="#"><Fa icon="github" /></NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink to="#"><Fa icon="facebook" /></NavLink>
+                    <NavLink to="https://github.com/BrandonM25/Emergency-Central-Final"><Fa icon="github" /></NavLink>
                   </NavItem>
                 </NavbarNav>
               </Collapse>
