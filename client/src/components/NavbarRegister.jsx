@@ -88,7 +88,7 @@ class NavbarRegister extends React.Component {
                             {!this.state.isWideEnough && <NavbarToggler onClick={this.onClick} />}
                             <Collapse isOpen={this.state.collapse} navbar>
                                 <NavbarNav left>
-                                    <NavItem active>
+                                    <NavItem>
                                         <Link className="nav-link" to="/">Home</Link>
                                     </NavItem>
                                     <NavItem active>
