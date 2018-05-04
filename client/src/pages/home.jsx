@@ -3,7 +3,6 @@ import NavbarWithIntro from '../components/NavbarWithIntro';
 import Footer from '../components/Footer';
 import Team from '../components/Team';
 
-
 class Home extends Component {
     render() {
         return (

@@ -3,6 +3,7 @@ import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLi
 import { Link } from 'react-router-dom';
 //import ButtonReg from './Button';
 import './NavbarHome.css'
+import AuthUserContext from '../AuthUserContext'
 
 class NavbarHome extends React.Component {
  
@@ -39,7 +40,12 @@ class NavbarHome extends React.Component {
                                         <Link className="nav-link" to="/">Home</Link>
                                     </NavItem>
                                     <NavItem active>
-                                        <Link className="nav-link" to="/app1">App</Link>
+                                        <AuthUserContext.Consumer>
+                                            {authUser => authUser
+                                            ?<Link className="nav-link" to="/appHome">App</Link>
+                                            :<Link className="nav-link" to="/app1">App</Link>
+                                            }
+                                        </AuthUserContext.Consumer>
                                     </NavItem>
                                 </NavbarNav>
                                 <NavbarNav right>
