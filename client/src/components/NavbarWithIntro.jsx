@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, Container, Mask, View, Row, Button } from 'mdbreact';
+import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, Container, Mask, View, Row, Button, FormInline, Input } from 'mdbreact';
 import { Link } from 'react-router-dom';
 import AuthUserContext from '../AuthUserContext';
 //import './Navbar.css'
 
 class NavbarWithIntro extends React.Component {
 
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -49,7 +49,12 @@ class NavbarWithIntro extends React.Component {
                 </NavbarNav>
                 <NavbarNav right>
                   <NavItem>
-                    <NavLink to="https://github.com/BrandonM25/Emergency-Central-Final"><Fa icon="github" /></NavLink>
+                    <form className="form-inline md-form mt-0 text-white">
+                      <Input className="form-control mr-sm-2 mb-3 text-white"label="Type your email" icon="envelope" group type="email" />
+                      <Input className="form-control mr-sm-2 mb-3 text-white"label="Type your password" icon="lock" group type="password" />
+                      <Button size="md"color="danger">Login</Button>
+                      <Button size="md"color="danger">Sign Out</Button>
+                    </form>
                   </NavItem>
                 </NavbarNav>
               </Collapse>
@@ -64,7 +69,7 @@ class NavbarWithIntro extends React.Component {
                 <h1 className="font-weight-bold text-white">EMERGENCY <a className="central">CENTRAL</a></h1>
                 <h5 className="font-weight-bold text-white">A ONE CLICK APP THAT WILL ALLOW YOU TO CONTACT EMERGENCY SERVICES</h5>
                 <Link to="#">
-                <Button size="lg" color="danger">Learn More</Button>
+                  <Button size="lg" color="danger">Learn More</Button>
                 </Link>
               </Container>
             </Mask>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, Container, Mask, View, Row, Col, Card, CardBody, CardImage, CardText, CardTitle, Button, Input } from 'mdbreact';
-import { Link,
+import {
+    Link,
     withRouter,
 } from 'react-router-dom';
 //import ButtonReg from './Button';
@@ -63,10 +64,10 @@ class NavbarWithIntro extends React.Component {
 
         event.preventDefault();
     }
- 
+
     render() {
         //const view = { background: 'url("https://images.unsplash.com/photo-1507105306461-47f75f2da3aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c3a9226dabffa306b261ea52c55cc954&auto=format&fit=crop&w=1950&q=80")no-repeat center center', backgroundSize: 'cover', height: '100vh', marginTop: '-56px' }
-        
+
         const {
             email,
             password,
@@ -74,7 +75,7 @@ class NavbarWithIntro extends React.Component {
         } = this.state;
 
         const isInvalid = password === '' || email === '';
-        
+
         return (
             <div>
                 <header>
@@ -101,7 +102,12 @@ class NavbarWithIntro extends React.Component {
                                 </NavbarNav>
                                 <NavbarNav right>
                                     <NavItem>
-                                        <NavLink to="https://github.com/BrandonM25/Emergency-Central-Final"><Fa icon="github" /></NavLink>
+                                        <form className="form-inline md-form mt-0 text-white">
+                                            <Input className="form-control mr-sm-2 mb-3 text-white" label="Type your email" icon="envelope" group type="email" />
+                                            <Input className="form-control mr-sm-2 mb-3 text-white" label="Type your password" icon="lock" group type="password" />
+                                            <Button size="md" color="danger">Login</Button>
+                                            <Button size="md" color="danger">Sign Out</Button>
+                                        </form>
                                     </NavItem>
                                 </NavbarNav>
                             </Collapse>
@@ -114,20 +120,7 @@ class NavbarWithIntro extends React.Component {
                         <Mask overlay="indigo-slight" style={{ flexDirection: 'column' }} className="flex-center text-center">
                             <Container className="animated slideInRight">
                                 <Row className="mt-5">
-                                    <Col className="col-md-8">
-                                        <Card>
-                                            <CardBody>
-                                                <h2 className="mb-5">Login Here</h2>
-                                                <form onSubmit={this.onSubmit}>
-                                                    <p className="h5 text-center mb-4">Sign in</p>
-                                                    <Input icon="envelope" label="Type your email" group type="email" validate error="wrong" success="right" value={email} onChange={event => this.setState(byPropKey('email', event.target.value))} />
-                                                    <Input icon="lock" label="Type your password" group type="password" validate value={password} onChange={event => this.setState(byPropKey('password', event.target.value))}/>
-                                                    <div className="text-center">
-                                                        <Button color="danger" type="submit" disabled={isInvalid}>Login</Button>
-                                                    </div>
-                                                </form>
-                                            </CardBody>
-                                        </Card>
+                                    <Col className="col-md-4">
                                     </Col>
 
                                     <Col className="col-md-4">
@@ -137,6 +130,9 @@ class NavbarWithIntro extends React.Component {
                                                 <Link to="/register" className="registerBtn"><Button color="danger">Register</Button></Link>
                                             </CardBody>
                                         </Card>
+                                    </Col>
+
+                                    <Col className="col-md-4">
                                     </Col>
                                 </Row>
                             </Container>
