@@ -31,6 +31,20 @@ class NavbarRegister extends React.Component {
         this.state = {
             collapse: false,
             isWideEnough: false,
+            userId: '',
+            email: '',
+            firstName: '',
+            lastName: '',
+            age: '',
+            sex: '',
+            phoneNumber: '',
+            emergencyContact: '',
+            emergencyNumber: '',
+            medicalHistory: '',
+            currentMedications: '',
+            allergies: '',
+            doctorName: '',
+            hospitalChoice: '',
             INITIAL_STATE
         };
         this.onClick = this.onClick.bind(this);
@@ -46,6 +60,19 @@ class NavbarRegister extends React.Component {
         const {
             email,
             passwordOne,
+            userId,
+            firstName,
+            lastName,
+            age,
+            sex,
+            phoneNumber,
+            emergencyContact,
+            emergencyNumber,
+            medicalHistory,
+            currentMedications,
+            allergies,
+            doctorName,
+            hospitalChoice,
         } = this.state;
 
         const {
@@ -54,15 +81,36 @@ class NavbarRegister extends React.Component {
 
         auth.createUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
-                console.log(INITIAL_STATE);
                 this.setState(() => ({ INITIAL_STATE }));
-                history.push(homeRoute.appHome);
+                fetch('/createUser', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        userId: auth.uid,
+                        email: email,
+                        firstName: firstName,
+                        lastName: lastName,
+                        age: age,
+                        sex: sex,
+                        phoneNumber: phoneNumber,
+                        emergencyContact: emergencyContact,
+                        emergencyNumber: emergencyNumber,
+                        medicalHistory: medicalHistory,
+                        currentMedications: currentMedications,
+                        allergies: allergies,
+                        doctorName: doctorName,
+                        hospitalChoice: hospitalChoice,
+                    }),
+                })
+                .then(function(response) {
+                    history.push(homeRoute.appHome);
+                });
             })
             .catch(error => {
                 this.setState(byPropKey('error', error));
             });
 
         event.preventDefault();
+
     }
 
 
@@ -73,6 +121,18 @@ class NavbarRegister extends React.Component {
             email,
             passwordOne,
             passwordTwo,
+            firstName,
+            lastName,
+            age,
+            sex,
+            phoneNumber,
+            emergencyContact,
+            emergencyNumber,
+            medicalHistory,
+            currentMedications,
+            allergies,
+            doctorName,
+            hospitalChoice,
             error,
         } = this.state;
 
@@ -128,23 +188,23 @@ class NavbarRegister extends React.Component {
                             <div className="row">
 
                                 <div className="col-md-6">
-                                    <Input label="First name" icon="user" />
+                                    <Input label="First name" icon="user" value={firstName} onChange={event => this.setState(byPropKey('firstName', event.target.value))}/>
                                 </div>
 
 
                                 <div className="col-md-6">
-                                    <Input label="Last Name" icon="user" />
+                                    <Input label="Last Name" icon="user" value={lastName} onChange={event => this.setState(byPropKey('lastName', event.target.value))}/>
                                 </div>
                             </div>
                             <div className="row">
 
                                 <div className="col-md-4">
-                                    <Input label="Age" icon="user" />
+                                    <Input label="Age" icon="user" value={age} onChange={event => this.setState(byPropKey('age', event.target.value))}/>
                                 </div>
 
 
                                 <div className="col-md-4">
-                                    <Input label="Sex" icon="user" />
+                                    <Input label="Sex" icon="user" value={sex} onChange={event => this.setState(byPropKey('sex', event.target.value))}/>
                                 </div>
                             </div>
                             <div className="row">
@@ -165,41 +225,41 @@ class NavbarRegister extends React.Component {
                             <div className="row">
 
                                 <div className="col-md-6">
-                                    <Input label="Phone Number" icon="phone" />
+                                    <Input label="Phone Number" icon="phone" value={phoneNumber} onChange={event => this.setState(byPropKey('phoneNumber', event.target.value))}/>
                                 </div>
 
                             </div>
                             <h2 className="mt-5 mb-5">Medical Information</h2>
                             <div className="row">
                                 <div className="col-md-12">
-                                    <Input type="textarea" label="Medical History" icon="pencil" />
+                                    <Input type="textarea" label="Medical History" icon="pencil" value={medicalHistory} onChange={event => this.setState(byPropKey('medicalHistory', event.target.value))}/>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-md-12">
-                                    <Input type="textarea" label="Current Medications" icon="pencil" />
+                                    <Input type="textarea" label="Current Medications" icon="pencil" value={currentMedications} onChange={event => this.setState(byPropKey('currentMedications', event.target.value))}/>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-md-12">
-                                    <Input type="textarea" label="Allergies" icon="pencil" />
+                                    <Input type="textarea" label="Allergies" icon="pencil" value={allergies} onChange={event => this.setState(byPropKey('allergies', event.target.value))}/>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-md-6">
-                                    <Input type="textarea" label="Physician's Name" icon="medkit" />
+                                    <Input type="textarea" label="Physician's Name" icon="medkit" value={doctorName} onChange={event => this.setState(byPropKey('doctorName', event.target.value))}/>
                                 </div>
                                 <div className="col-md-6">
-                                    <Input type="textarea" label="Hospital of Choice" icon="medkit" />
+                                    <Input type="textarea" label="Hospital of Choice" icon="medkit" value={hospitalChoice} onChange={event => this.setState(byPropKey('hospitalChoice', event.target.value))}/>
                                 </div>
                             </div>
                             <h2 className="mt-5 mb-5">Emergency Contact Information</h2>
                             <div className="row">
                                 <div className="col-md-6">
-                                    <Input label="First/Last Name" icon="user" />
+                                    <Input label="First/Last Name" icon="user" value={emergencyContact} onChange={event => this.setState(byPropKey('emergencyContact', event.target.value))}/>
                                 </div>
                                 <div className="col-md-6">
-                                    <Input label="Phone Number" icon="phone" />
+                                    <Input label="Phone Number" icon="phone" value={emergencyNumber} onChange={event => this.setState(byPropKey('emergencyNumber', event.target.value))}/>
                                 </div>
                             </div>
                             <div className="row mt-4">

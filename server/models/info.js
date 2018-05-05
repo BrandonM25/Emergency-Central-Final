@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
         sex: DataTypes.STRING,
         phoneNumber: DataTypes.STRING,
         emergencyContact: DataTypes.STRING,
-        emergrncyNumber: DataTypes.STRING,
+        emergencyNumber: DataTypes.STRING,
         medicalHistory: DataTypes.TEXT,
         currentMedications: DataTypes.TEXT,
         allergies: DataTypes.TEXT,
