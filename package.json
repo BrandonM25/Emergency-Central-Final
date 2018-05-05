@@ -8,12 +8,13 @@
   },
   "dependencies": {
     "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
     "express": "^4.16.2",
     "firebase": "^4.13.1",
     "mysql": "^2.15.0",
     "path": "^0.12.7",
-    "twilio": "^3.16.0",
-    "concurrently": "^3.5.1"
+    "sequelize": "^4.37.6",
+    "twilio": "^3.16.0"
   },
   "devDependencies": {
     "concurrently": "^3.5.1"

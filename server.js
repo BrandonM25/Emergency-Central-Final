@@ -16,7 +16,10 @@ app.use(bodyParser.json());
 var routes = require("./server/controllers/controllers.js");
 app.use("/", routes);
 
-// Listener
-app.listen(PORT, function() {
-    console.log("App listening on PORT: " + PORT);
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
