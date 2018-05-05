@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, Container, Mask, View, Row, Button, FormInline, Input } from 'mdbreact';
 import { Link } from 'react-router-dom';
+import AuthUserContext from '../AuthUserContext';
 //import './Navbar.css'
 
 class NavbarWithIntro extends React.Component {
@@ -38,7 +39,12 @@ class NavbarWithIntro extends React.Component {
                     <Link className="nav-link" to="/">Home</Link>
                   </NavItem>
                   <NavItem>
-                    <Link className="nav-link" to="/app1">App</Link>
+                    <AuthUserContext.Consumer>
+                        {authUser => authUser
+                        ?<Link className="nav-link" to="/appHome">App</Link>
+                        :<Link className="nav-link" to="/app1">App</Link>
+                        }
+                    </AuthUserContext.Consumer>
                   </NavItem>
                 </NavbarNav>
                 <NavbarNav right>

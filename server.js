@@ -1,6 +1,7 @@
 // Requiring in the necessary node packages
 var express = require("express");
 var bodyParser = require("body-parser");
+var db = require("./server/models");
 
 // Initializing express and establishing the port the listener will use
 var app = express();
@@ -17,6 +18,8 @@ var routes = require("./server/controllers/controllers.js");
 app.use("/", routes);
 
 // Listener
-app.listen(PORT, function() {
-    console.log("App listening on PORT: " + PORT);
+db.sequelize.sync().then(function() {
+    app.listen(PORT, function() {
+        console.log("App listening on PORT: " + PORT);
+    })
 });

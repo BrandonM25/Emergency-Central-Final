@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { auth } from '../firebase';
 import * as homeRoute from '../pages/appHome';
+import AuthUserContext from '../AuthUserContext';
 import './NavbarRegister.css'
 
 const INITIAL_STATE = {
@@ -92,7 +93,12 @@ class NavbarRegister extends React.Component {
                                         <Link className="nav-link" to="/">Home</Link>
                                     </NavItem>
                                     <NavItem active>
-                                        <Link className="nav-link" to="/app1">App</Link>
+                                        <AuthUserContext.Consumer>
+                                            {authUser => authUser
+                                            ?<Link className="nav-link" to="/appHome">App</Link>
+                                            :<Link className="nav-link" to="/app1">App</Link>
+                                            }
+                                        </AuthUserContext.Consumer>
                                     </NavItem>
                                 </NavbarNav>
                                 <NavbarNav right>
