@@ -27,20 +27,20 @@ router.get("/getInfo", function (req, res) {
 
 router.post("/createUser", function (req, res) {
     db.User.create({
-        userId: authUser,
-        email: email,
-        firstName: firstName,
-        lastName: lastName,
-        age: age,
-        sex: sex,
-        phoneNumber: phoneNumber,
-        emergencyContact: emergencyContact,
-        emergencyNumber: emergencyNumber,
-        medicalHistory: medicalHistory,
-        currentMedications: currentMedications,
-        allergies: allergies,
-        doctorName: doctorName,
-        hospitalChoice: hospitalChoice,
+        userId: req.body.userId,
+        email: req.body.email,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        age: req.body.age,
+        sex: req.body.sex,
+        phoneNumber: req.body.phoneNumber,
+        emergencyContact: req.body.emergencyContact,
+        emergencyNumber: req.body.emergencyNumber,
+        medicalHistory: req.body.medicalHistory,
+        currentMedications: req.body.currentMedications,
+        allergies: req.body.allergies,
+        doctorName: req.body.doctorName,
+        hospitalChoice: req.body.hospitalChoice,
     }, function (data) {
         console.log(data);
     });

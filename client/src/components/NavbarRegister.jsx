@@ -48,7 +48,6 @@ class NavbarRegister extends React.Component {
             INITIAL_STATE
         };
         this.onClick = this.onClick.bind(this);
-        this.handleChange = this.handleChange.bind(this);
     }
 
     onClick() {
@@ -83,8 +82,28 @@ class NavbarRegister extends React.Component {
         auth.createUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
                 this.setState(() => ({ INITIAL_STATE }));
-                this.setState(() => ({ userId: authUser }));
-                history.push(homeRoute.appHome);
+                fetch('/createUser', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        userId: auth.uid,
+                        email: email,
+                        firstName: firstName,
+                        lastName: lastName,
+                        age: age,
+                        sex: sex,
+                        phoneNumber: phoneNumber,
+                        emergencyContact: emergencyContact,
+                        emergencyNumber: emergencyNumber,
+                        medicalHistory: medicalHistory,
+                        currentMedications: currentMedications,
+                        allergies: allergies,
+                        doctorName: doctorName,
+                        hospitalChoice: hospitalChoice,
+                    }),
+                })
+                .then(function(response) {
+                    history.push(homeRoute.appHome);
+                });
             })
             .catch(error => {
                 this.setState(byPropKey('error', error));
@@ -92,25 +111,6 @@ class NavbarRegister extends React.Component {
 
         event.preventDefault();
 
-        fetch('/createUser', {
-            method: 'POST',
-            body: JSON.stringify({
-                userId: userId,
-                email: email,
-                firstName: firstName,
-                lastName: lastName,
-                age: age,
-                sex: sex,
-                phoneNumber: phoneNumber,
-                emergencyContact: emergencyContact,
-                emergencyNumber: emergencyNumber,
-                medicalHistory: medicalHistory,
-                currentMedications: currentMedications,
-                allergies: allergies,
-                doctorName: doctorName,
-                hospitalChoice: hospitalChoice,
-            }),
-        })
     }
 
 
@@ -256,10 +256,10 @@ class NavbarRegister extends React.Component {
                             <h2 className="mt-5 mb-5">Emergency Contact Information</h2>
                             <div className="row">
                                 <div className="col-md-6">
-                                    <Input label="First/Last Name" icon="user" />
+                                    <Input label="First/Last Name" icon="user" value={emergencyContact} onChange={event => this.setState(byPropKey('emergencyContact', event.target.value))}/>
                                 </div>
                                 <div className="col-md-6">
-                                    <Input label="Phone Number" icon="phone" />
+                                    <Input label="Phone Number" icon="phone" value={emergencyNumber} onChange={event => this.setState(byPropKey('emergencyNumber', event.target.value))}/>
                                 </div>
                             </div>
                             <div className="row mt-4">
