@@ -31,7 +31,7 @@ class NavbarRegister extends React.Component {
         this.state = {
             collapse: false,
             isWideEnough: false,
-            userId: authUser,
+            userId: '',
             email: '',
             firstName: '',
             lastName: '',
@@ -61,6 +61,19 @@ class NavbarRegister extends React.Component {
         const {
             email,
             passwordOne,
+            userId,
+            firstName,
+            lastName,
+            age,
+            sex,
+            phoneNumber,
+            emergencyContact,
+            emergencyNumber,
+            medicalHistory,
+            currentMedications,
+            allergies,
+            doctorName,
+            hospitalChoice,
         } = this.state;
 
         const {
@@ -70,6 +83,7 @@ class NavbarRegister extends React.Component {
         auth.createUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
                 this.setState(() => ({ INITIAL_STATE }));
+                this.setState(() => ({ userId: authUser }));
                 history.push(homeRoute.appHome);
             })
             .catch(error => {
@@ -80,7 +94,22 @@ class NavbarRegister extends React.Component {
 
         fetch('/createUser', {
             method: 'POST',
-            body: '',
+            body: JSON.stringify({
+                userId: userId,
+                email: email,
+                firstName: firstName,
+                lastName: lastName,
+                age: age,
+                sex: sex,
+                phoneNumber: phoneNumber,
+                emergencyContact: emergencyContact,
+                emergencyNumber: emergencyNumber,
+                medicalHistory: medicalHistory,
+                currentMedications: currentMedications,
+                allergies: allergies,
+                doctorName: doctorName,
+                hospitalChoice: hospitalChoice,
+            }),
         })
     }
 

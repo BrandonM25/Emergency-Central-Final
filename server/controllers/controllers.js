@@ -15,7 +15,11 @@ const twilioNumb = '+19319960010';
 
 // Line of code that handles the html routes or any invalid paths entered
 router.get("/getInfo", function (req, res) {
-    db.User.findOne({where: {userId: req.params.userId}}, function (data) {
+    db.User.findOne({
+        where: {
+            userId: req.params.userId
+        }
+    }, function (data) {
         console.log(data);
         res.json(data);
     });
@@ -23,7 +27,20 @@ router.get("/getInfo", function (req, res) {
 
 router.post("/createUser", function (req, res) {
     db.User.create({
-        fields: fields.fed.from.post
+        userId: authUser,
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        age: age,
+        sex: sex,
+        phoneNumber: phoneNumber,
+        emergencyContact: emergencyContact,
+        emergencyNumber: emergencyNumber,
+        medicalHistory: medicalHistory,
+        currentMedications: currentMedications,
+        allergies: allergies,
+        doctorName: doctorName,
+        hospitalChoice: hospitalChoice,
     }, function (data) {
         console.log(data);
     });
