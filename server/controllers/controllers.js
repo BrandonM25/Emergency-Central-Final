@@ -4,23 +4,28 @@ const express = require("express");
 const firebase = require("firebase");
 const twilio = require('twilio');
 const twilioInfo = require('../config/twilio');
+const info = require("../models");
+const db = require("../models");
 
+// Declaring routes
 const router = express.Router();
 
-const info = require("../models/info");
+// From number for Twilio
 const twilioNumb = '+19319960010';
 
 // Line of code that handles the html routes or any invalid paths entered
-
 router.get("/getInfo", function (req, res) {
-    info.pullUserInfo(req.params.id, function (data) {
+    db.User.findOne({where: {userId: req.params.userId}}, function (data) {
+        console.log(data);
         res.json(data);
     });
 });
 
 router.post("/createUser", function (req, res) {
-    info.createUser(req.params.id, function (data) {
-        res.json(data);
+    db.User.create({
+        fields: fields.fed.from.post
+    }, function (data) {
+        console.log(data);
     });
 });
 
