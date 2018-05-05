@@ -8,11 +8,25 @@ import { auth } from '../firebase';
 import * as homeRoute from '../pages/appHome';
 import AuthUserContext from '../AuthUserContext';
 import './NavbarRegister.css'
+import axios from 'axios';
 
 const INITIAL_STATE = {
     email: '',
     passwordOne: '',
     passwordTwo: '',
+    userId: '',
+    firstName: '',
+    lastName: '',
+    age: '',
+    sex: '',
+    phoneNumber: '',
+    emergencyContact: '',
+    emergencyNumber: '',
+    medicalHistory: '',
+    currentMedications: '',
+    allergies: '',
+    doctorName: '',
+    hospitalChoice: '',
     error: null,
 };
 
@@ -31,20 +45,6 @@ class NavbarRegister extends React.Component {
         this.state = {
             collapse: false,
             isWideEnough: false,
-            userId: '',
-            email: '',
-            firstName: '',
-            lastName: '',
-            age: '',
-            sex: '',
-            phoneNumber: '',
-            emergencyContact: '',
-            emergencyNumber: '',
-            medicalHistory: '',
-            currentMedications: '',
-            allergies: '',
-            doctorName: '',
-            hospitalChoice: '',
             INITIAL_STATE
         };
         this.onClick = this.onClick.bind(this);
@@ -82,10 +82,9 @@ class NavbarRegister extends React.Component {
         auth.createUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
                 this.setState(() => ({ INITIAL_STATE }));
-                fetch('/createUser', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        userId: auth.uid,
+                axios.post('/createUser', 
+                    {
+                        userId: auth().uid,
                         email: email,
                         firstName: firstName,
                         lastName: lastName,
@@ -99,8 +98,8 @@ class NavbarRegister extends React.Component {
                         allergies: allergies,
                         doctorName: doctorName,
                         hospitalChoice: hospitalChoice,
-                    }),
-                })
+                    },
+                )
                 .then(function(response) {
                     history.push(homeRoute.appHome);
                 });

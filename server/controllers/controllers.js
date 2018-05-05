@@ -26,24 +26,26 @@ router.get("/getInfo", function (req, res) {
 });
 
 router.post("/createUser", function (req, res) {
+    console.log(req.body);
     db.User.create({
-        userId: req.body.userId,
-        email: req.body.email,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        age: req.body.age,
-        sex: req.body.sex,
-        phoneNumber: req.body.phoneNumber,
-        emergencyContact: req.body.emergencyContact,
-        emergencyNumber: req.body.emergencyNumber,
-        medicalHistory: req.body.medicalHistory,
-        currentMedications: req.body.currentMedications,
-        allergies: req.body.allergies,
-        doctorName: req.body.doctorName,
-        hospitalChoice: req.body.hospitalChoice,
-    }, function (data) {
-        console.log(data);
-    });
+            userId: req.body.userId,
+            email: req.body.email,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            age: req.body.age,
+            sex: req.body.sex,
+            phoneNumber: req.body.phoneNumber,
+            emergencyContact: req.body.emergencyContact,
+            emergencyNumber: req.body.emergencyNumber,
+            medicalHistory: req.body.medicalHistory,
+            currentMedications: req.body.currentMedications,
+            allergies: req.body.allergies,
+            doctorName: req.body.doctorName,
+            hospitalChoice: req.body.hospitalChoice
+        })
+        .then(function (dbUser) {
+            res.json(dbUser);
+        });
 });
 
 router.post("/updateInfo", function (req, res) {
