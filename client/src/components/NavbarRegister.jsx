@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import { auth } from '../firebase';
 import * as homeRoute from '../pages/appHome';
-//import './Navbar.css'
+import './NavbarRegister.css'
 
 const INITIAL_STATE = {
     email: '',
@@ -97,7 +97,12 @@ class NavbarRegister extends React.Component {
                                 </NavbarNav>
                                 <NavbarNav right>
                                     <NavItem>
-                                        <NavLink to="#"><Fa icon="github" /></NavLink>
+                                        <form className="form-inline md-form mt-0 text-white">
+                                            <Input className="form-control mr-sm-2 mb-3 text-white" label="Type your email" icon="envelope" group type="email" />
+                                            <Input className="form-control mr-sm-2 mb-3 text-white" label="Type your password" icon="lock" group type="password" />
+                                            <Button size="md" color="danger">Login</Button>
+                                            <Button size="md" color="danger">Sign Out</Button>
+                                        </form>
                                     </NavItem>
                                 </NavbarNav>
                             </Collapse>
@@ -107,7 +112,7 @@ class NavbarRegister extends React.Component {
 
                     <Jumbotron className="text-center danger-color lighten-2 white-text z-depth-2 mt-5">
                         <Container>
-                            <h1 className="h1-reponsive mb-4 mt-2 white-text font-bold">Registration Form</h1>
+                            <h1 className="h1-reponsive mb-4 mt-5 white-text font-bold">Registration Form</h1>
                         </Container>
                     </Jumbotron>
 
@@ -180,6 +185,15 @@ class NavbarRegister extends React.Component {
                                 </div>
                                 <div className="col-md-6">
                                     <Input type="textarea" label="Hospital of Choice" icon="medkit" />
+                                </div>
+                            </div>
+                            <h2 className="mt-5 mb-5">Emergency Contact Information</h2>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <Input label="First/Last Name" icon="user" />
+                                </div>
+                                <div className="col-md-6">
+                                    <Input label="Phone Number" icon="phone" />
                                 </div>
                             </div>
                             <div className="row mt-4">
