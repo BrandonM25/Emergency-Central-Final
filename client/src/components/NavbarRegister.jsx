@@ -27,6 +27,8 @@ const INITIAL_STATE = {
     allergies: '',
     doctorName: '',
     hospitalChoice: '',
+    signInEmail: '',
+    signInPassword: '',
     error: null,
 };
 
@@ -112,6 +114,28 @@ class NavbarRegister extends React.Component {
 
     }
 
+    signIn = (event) => {
+        const {
+            signInEmail,
+            signInPassword,
+        } = this.state;
+
+        const {
+            history,
+        } = this.props;
+
+        auth.signInWithEmailAndPassword(signInEmail, signInPassword)
+            .then(authUser => {
+                this.setState(() => ({ INITIAL_STATE }));
+                history.push(homeRoute.appHome);
+            })
+            .catch(error => {
+                this.setState(byPropKey('error', error));
+            });
+
+        event.preventDefault();
+    }
+
 
     render() {
         const view = { background: 'url("https://images.unsplash.com/photo-1507105306461-47f75f2da3aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c3a9226dabffa306b261ea52c55cc954&auto=format&fit=crop&w=1950&q=80")no-repeat center center', backgroundSize: 'cover', height: '100vh', marginTop: '-56px' }
@@ -132,10 +156,14 @@ class NavbarRegister extends React.Component {
             allergies,
             doctorName,
             hospitalChoice,
+            signInEmail,
+            signInPassword,
             error,
         } = this.state;
 
         const isInvalid = passwordOne !== passwordTwo || passwordOne === '' || email === '';
+        const signInInvalid = signInEmail === '' || signInPassword === '';
+
         return (
             <div>
                 <header>
@@ -162,11 +190,10 @@ class NavbarRegister extends React.Component {
                                 </NavbarNav>
                                 <NavbarNav right>
                                     <NavItem>
-                                        <form className="form-inline md-form mt-0 text-white">
-                                            <Input className="form-control mr-sm-2 mb-3 text-white" label="Type your email" icon="envelope" group type="email" />
-                                            <Input className="form-control mr-sm-2 mb-3 text-white" label="Type your password" icon="lock" group type="password" />
-                                            <Button size="md" color="danger">Login</Button>
-                                            <Button size="md" color="danger">Sign Out</Button>
+                                        <form className="form-inline md-form mt-0 text-white" onSubmit={this.signIn}>
+                                            <Input className="form-control mr-sm-2 mb-3 text-white" label="Type your email" icon="envelope" group type="email" value={signInEmail} onChange={event => this.setState(byPropKey('signInEmail', event.target.value))} />
+                                            <Input className="form-control mr-sm-2 mb-3 text-white" label="Type your password" icon="lock" group type="password" value={signInPassword} onChange={event => this.setState(byPropKey('signInPassword', event.target.value))}/>
+                                            <Button size="md" color="danger" disabled={signInInvalid}>Login</Button>
                                         </form>
                                     </NavItem>
                                 </NavbarNav>
