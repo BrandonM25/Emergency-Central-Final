@@ -4,7 +4,7 @@ import {
     Link,
     withRouter,
 } from 'react-router-dom';
-import { auth } from '../firebase';
+import { firebase, auth } from '../firebase';
 import * as homeRoute from '../pages/appHome';
 import AuthUserContext from '../AuthUserContext';
 import './NavbarRegister.css'
@@ -79,12 +79,14 @@ class NavbarRegister extends React.Component {
             history,
         } = this.props;
 
+        
+
         auth.createUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
                 this.setState(() => ({ INITIAL_STATE }));
                 axios.post('/createUser', 
                     {
-                        userId: auth().uid,
+                        userId: authUser.user.uid,
                         email: email,
                         firstName: firstName,
                         lastName: lastName,
