@@ -5,7 +5,7 @@ import Home from './pages/home';
 import App1 from './pages/app1';
 import Register from './pages/register';
 import AppHome from './pages/appHome';
-import withAuthentication from './withAuthentication';
+import withAuthentication from './authentication/withAuthentication';
 
 class App extends Component {
   render() {

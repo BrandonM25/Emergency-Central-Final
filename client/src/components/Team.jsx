@@ -32,6 +32,8 @@ class Team extends React.Component {
                                         <a className="icons-sm fb-ic" href="https://www.linkedin.com/in/jameshenley1/">
                                             <i className="fa fa-linkedin elegant-text"> </i>
                                         </a>
+                                        
+                                        <span>  </span>
 
                                         <a className="icons-sm tw-ic" href="https://github.com/sousaman">
                                             <i className="fa fa-github elegant-text"> </i>
@@ -58,6 +60,8 @@ class Team extends React.Component {
                                             <i className="fa fa-linkedin elegant-text"> </i>
                                         </a>
 
+                                        <span>  </span>
+
                                         <a className="icons-sm ins-ic" href="https://github.com/designtech44">
                                             <i className="fa fa-github elegant-text"> </i>
                                         </a>
@@ -82,6 +86,8 @@ class Team extends React.Component {
                                         <a className="icons-sm fb-ic">
                                             <i className="fa fa-linkedin elegant-text"> </i>
                                         </a>
+
+                                        <span>  </span>
 
                                         <a className="icons-sm ins-ic">
                                             <i className="fa fa-github elegant-text"> </i>
@@ -109,6 +115,8 @@ class Team extends React.Component {
                                         <a className="icons-sm fb-ic" href="https://www.linkedin.com/in/brandon-matthews-b14165153/">
                                             <i className="fa fa-linkedin elegant-text">  </i>
                                         </a>
+
+                                        <span>  </span>
 
                                         <a className="icons-sm ins-ic" href="https://github.com/BrandonM25">
                                             <i className="fa fa-github elegant-text">  </i>
