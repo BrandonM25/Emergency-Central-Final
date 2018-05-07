@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, Container, Mask, View, Row, Col, Card, CardBody, CardImage, CardText, CardTitle, Button, Input } from 'mdbreact';
-import { Link } from 'react-router-dom';
+import { Link,
+        withRouter, } from 'react-router-dom';
+import { auth } from '../firebase';
 //import ButtonReg from './Button';
 import './NavbarHome.css'
-import AuthUserContext from '../AuthUserContext'
+import AuthUserContext from '../authentication/AuthUserContext'
+import * as trueHome from '../pages/home';
+
+const superNavbar = withRouter(({ history }) =>
+    <div>
+        <NavbarHome history={history} />
+    </div>
+)
 
 class NavbarHome extends React.Component {
  
-
     constructor(props) {
         super(props);
         this.state = {
@@ -15,6 +23,7 @@ class NavbarHome extends React.Component {
             isWideEnough: false,
         };
         this.onClick = this.onClick.bind(this);
+        this.signOut = this.signOut.bind(this);
     }
 
     onClick() {
@@ -22,6 +31,17 @@ class NavbarHome extends React.Component {
             collapse: !this.state.collapse,
         });
     }
+
+    signOut() {
+        const {
+          history,
+          } = this.props;
+      
+        auth.signOut();
+        history.push(trueHome.trueHome);
+    
+      }
+
     render() {
         //const view = { background: 'url("https://images.unsplash.com/photo-1507105306461-47f75f2da3aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c3a9226dabffa306b261ea52c55cc954&auto=format&fit=crop&w=1950&q=80")no-repeat center center', backgroundSize: 'cover', height: '100vh', marginTop: '-56px' }
         return (
@@ -49,6 +69,9 @@ class NavbarHome extends React.Component {
                                     </NavItem>
                                 </NavbarNav>
                                 <NavbarNav right>
+                                    <NavItem>
+                                        <Button size="md"color="danger" onClick={this.signOut}>Sign Out</Button>
+                                    </NavItem>
                                     <NavItem>
                                         <NavLink to="https://github.com/BrandonM25/Emergency-Central-Final"><Fa icon="github" /></NavLink>
                                     </NavItem>
@@ -82,4 +105,4 @@ class NavbarHome extends React.Component {
     }
 }
 
-export default NavbarHome;
+export default withRouter(superNavbar);

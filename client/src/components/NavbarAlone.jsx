@@ -8,7 +8,7 @@ import {
 import './NavbarAlone.css'
 import { auth } from '../firebase';
 import * as homeRoute from '../pages/appHome';
-import AuthUserContext from '../AuthUserContext';
+import AuthUserContext from '../authentication/AuthUserContext';
 
 const superNavbar = withRouter(({ history }) =>
     <div>
@@ -54,7 +54,6 @@ class NavbarWithIntro extends React.Component {
 
         auth.signInWithEmailAndPassword(email, password)
             .then(authUser => {
-                console.log(INITIAL_STATE);
                 this.setState(() => ({ INITIAL_STATE }));
                 history.push(homeRoute.appHome);
             })
@@ -102,11 +101,10 @@ class NavbarWithIntro extends React.Component {
                                 </NavbarNav>
                                 <NavbarNav right>
                                     <NavItem>
-                                        <form className="form-inline md-form mt-0 text-white">
-                                            <Input className="form-control mr-sm-2 mb-3 text-white" label="Type your email" icon="envelope" group type="email" />
-                                            <Input className="form-control mr-sm-2 mb-3 text-white" label="Type your password" icon="lock" group type="password" />
-                                            <Button size="md" color="danger">Login</Button>
-                                            <Button size="md" color="danger">Sign Out</Button>
+                                        <form className="form-inline md-form mt-0 text-white" onSubmit={this.onSubmit}>
+                                            <Input className="form-control mr-sm-2 mb-3 text-white"label="Type your email" icon="envelope" group type="email" value={email} onChange={event => this.setState(byPropKey('email', event.target.value))}/>
+                                            <Input className="form-control mr-sm-2 mb-3 text-white"label="Type your password" icon="lock" group type="password" value={password} onChange={event => this.setState(byPropKey('password', event.target.value))}/>
+                                            <Button size="md"color="danger" type="submit" disabled={isInvalid}>Login</Button>
                                         </form>
                                     </NavItem>
                                 </NavbarNav>
