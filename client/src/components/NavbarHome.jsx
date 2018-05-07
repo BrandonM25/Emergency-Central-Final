@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, Container, Mask, View, Row, Col, Card, CardBody, CardImage, CardText, CardTitle, Button, Input } from 'mdbreact';
 import { Link,
         withRouter, } from 'react-router-dom';
-import { auth } from '../firebase';
+import { auth, firebase } from '../firebase';
 //import ButtonReg from './Button';
 import './NavbarHome.css'
 import AuthUserContext from '../authentication/AuthUserContext'
 import * as trueHome from '../pages/home';
+import axios from 'axios';
 
 const superNavbar = withRouter(({ history }) =>
     <div>
@@ -21,6 +22,7 @@ class NavbarHome extends React.Component {
         this.state = {
             collapse: false,
             isWideEnough: false,
+            buttonText: "CALL 911"
         };
         this.onClick = this.onClick.bind(this);
         this.signOut = this.signOut.bind(this);
@@ -42,8 +44,20 @@ class NavbarHome extends React.Component {
     
       }
 
+      emergency() {
+          axios.post("/emergency", 
+                {id: firebase.auth.currentUser.uid}).then(function() {
+                    this.setState({
+                        buttonText: "911 has been contacted. Assistance will be there soon!"
+                    })
+            })
+      }
+
     render() {
         //const view = { background: 'url("https://images.unsplash.com/photo-1507105306461-47f75f2da3aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c3a9226dabffa306b261ea52c55cc954&auto=format&fit=crop&w=1950&q=80")no-repeat center center', backgroundSize: 'cover', height: '100vh', marginTop: '-56px' }
+        const {
+            buttonText,
+        } = this.state;
         return (
             <div>
                 <header>
@@ -90,7 +104,7 @@ class NavbarHome extends React.Component {
 
                                     </Col>
                                     <Col className="col-md-4">
-                                    <div className="emerbtn"><h1>CALL 911</h1></div>
+                                        <div className="emerbtn" onClick={this.emergency}><h1>{this.state.buttonText}</h1></div>
                                     </Col>
                                     <Col className="col-md-4">
 
