@@ -3,7 +3,6 @@ import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLi
 import { Link,
         withRouter, } from 'react-router-dom';
 import { auth, firebase } from '../firebase';
-//import ButtonReg from './Button';
 import './NavbarHome.css'
 import AuthUserContext from '../authentication/AuthUserContext'
 import * as trueHome from '../pages/home';
@@ -105,6 +104,7 @@ class NavbarHome extends React.Component {
                                     </Col>
                                     <Col className="col-md-4">
                                         <div className="emerbtn" onClick={this.emergency}><h1>{this.state.buttonText}</h1></div>
+                                        <Link to="/editinfo"><Button color="danger" size="sm">Edit Info</Button></Link>
                                     </Col>
                                     <Col className="col-md-4">
 
