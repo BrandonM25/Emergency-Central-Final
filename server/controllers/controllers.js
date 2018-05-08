@@ -67,7 +67,7 @@ router.post("/emergency", function (req, res) {
                     body: returnedInfo.firstName + " " + returnedInfo.lastName + " is contacting emergency services. Here is this person's information. Medical History: " + returnedInfo.medicalHistory
                     + " Current Medication: " + returnedInfo.currentMedications + " Allergies: " + returnedInfo.allergies + " Physician's Name: " + returnedInfo.doctorName
                     + " Choice of Hospital: " + returnedInfo.hospitalChoice,
-                    to: '+1' + returnedInfo.emergencyNumber.replace(/\D/g,''), // Text this number
+                    to: emergServices, // Text this number
                     from: twilioNumb // From a valid Twilio number
                 })
                 .then((message) => console.log(message.sid),
