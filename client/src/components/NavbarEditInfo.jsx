@@ -8,6 +8,7 @@ import { firebase, auth } from '../firebase';
 import * as homeRoute from '../pages/appHome';
 import AuthUserContext from '../authentication/AuthUserContext';
 import './NavbarRegister.css'
+import './NavbarEditInfo.css'
 import axios from 'axios';
 
 const INITIAL_STATE = {
