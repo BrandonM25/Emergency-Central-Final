@@ -12,8 +12,6 @@ import axios from 'axios';
 
 const INITIAL_STATE = {
     email: '',
-    passwordOne: '',
-    passwordTwo: '',
     userId: '',
     firstName: '',
     lastName: '',
@@ -63,7 +61,6 @@ class NavabarEditInfo extends React.Component {
     onSubmit = (event) => {
         const {
             email,
-            passwordOne,
             userId,
             firstName,
             lastName,
@@ -83,31 +80,34 @@ class NavabarEditInfo extends React.Component {
             history,
         } = this.props;
 
-        axios.post('/createUser',
+        axios.post('/updateInfo',
             {
-                email: email,
-                firstName: firstName,
-                lastName: lastName,
-                age: age,
-                sex: sex,
-                phoneNumber: phoneNumber,
-                emergencyContact: emergencyContact,
-                emergencyNumber: emergencyNumber,
-                medicalHistory: medicalHistory,
-                currentMedications: currentMedications,
-                allergies: allergies,
-                doctorName: doctorName,
-                hospitalChoice: hospitalChoice,
-            },
-        )
-            .then(function (response) {
-                history.push(homeRoute.appHome);
-            });
+                id: firebase.auth.currentUser.uid,
+                user: {
+                    email: email,
+                    firstName: firstName,
+                    lastName: lastName,
+                    age: age,
+                    sex: sex,
+                    phoneNumber: phoneNumber,
+                    emergencyContact: emergencyContact,
+                    emergencyNumber: emergencyNumber,
+                    medicalHistory: medicalHistory,
+                    currentMedications: currentMedications,
+                    allergies: allergies,
+                    doctorName: doctorName,
+                    hospitalChoice: hospitalChoice,
+                }
+            }
+        ).then(function (response) {
+            console.log("I'm here");
+            history.push(homeRoute.appHome);
+        });
 
         event.preventDefault();
 
     }
-    
+
     edit() {
         this.setState({ editMode: "edit" })
     };
@@ -144,19 +144,19 @@ class NavabarEditInfo extends React.Component {
                     console.log(superThis.state);
                     console.log(data);
                     superThis.setState({
-                            email: data.email,
-                            firstName: data.firstName,
-                            lastName: data.lastName,
-                            age: String(data.age),
-                            sex: data.sex,
-                            phoneNumber: data.phoneNumber,
-                            emergencyContact: data.emergencyContact,
-                            emergencyNumber: data.emergencyNumber,
-                            medicalHistory: data.medicalHistory,
-                            currentMedications: data.currentMedications,
-                            allergies: data.allergies,
-                            doctorName: data.doctorName,
-                            hospitalChoice: data.hospitalChoice,
+                        email: data.email,
+                        firstName: data.firstName,
+                        lastName: data.lastName,
+                        age: String(data.age),
+                        sex: data.sex,
+                        phoneNumber: data.phoneNumber,
+                        emergencyContact: data.emergencyContact,
+                        emergencyNumber: data.emergencyNumber,
+                        medicalHistory: data.medicalHistory,
+                        currentMedications: data.currentMedications,
+                        allergies: data.allergies,
+                        doctorName: data.doctorName,
+                        hospitalChoice: data.hospitalChoice,
                     }, () => {
                         console.log(superThis.state);
                     })
@@ -191,13 +191,12 @@ class NavabarEditInfo extends React.Component {
         //     error,
         // } = this.state;
 
-        const isInvalid = this.state.passwordOne !== this.state.passwordTwo || this.state.passwordOne === '' || 
-        this.state.email === '' || this.state.firstName === '' || this.state.lastName === '' || this.state.age === '' || 
-        this.state.sex === '' || this.state.phoneNumber === '' || this.state.emergencyContact === '' || 
-        this.state.emergencyNumber === '' || this.state.medicalHistory === '' || this.state.currentMedications === '' || 
-        this.state.allergies === '' || this.state.doctorName === '' || this.state.hospitalChoice === '';
+        const isInvalid = this.state.email === '' || this.state.firstName === '' || this.state.lastName === '' || this.state.age === '' ||
+            this.state.sex === '' || this.state.phoneNumber === '' || this.state.emergencyContact === '' ||
+            this.state.emergencyNumber === '' || this.state.medicalHistory === '' || this.state.currentMedications === '' ||
+            this.state.allergies === '' || this.state.doctorName === '' || this.state.hospitalChoice === '' || this.state.editMode === '';
         const signInInvalid = this.state.signInEmail === '' || this.state.signInPassword === '';
-        const isNotEditMode = this.state.editMode === ''
+        const isNotEditMode = this.state.editMode === '';
 
         return (
             <div>
@@ -233,7 +232,7 @@ class NavabarEditInfo extends React.Component {
                                                     <input className="form-control mr-sm-2 mb-3 text-white" label="Type your password" icon="lock" group type="password" value={this.state.signInPassword} onChange={event => this.setState(byPropKey('signInPassword', event.target.value))} />
                                                     <Button size="md" color="danger" disabled={signInInvalid}>Login</Button>
                                                 </form>
-                                                }
+                                            }
                                         </AuthUserContext.Consumer>
                                     </NavItem>
                                 </NavbarNav>
@@ -302,24 +301,9 @@ class NavabarEditInfo extends React.Component {
                                         <label for="materialFormRegisterEmailEx">Your email</label>
                                     </div>
                                 </div>
-
-
-                                <div className="col-md-6">
-                                    <div className="md-form">
-                                        <i className="fa fa-lock prefix"></i>
-                                        <input type="password" id="materialFormRegisterPasswordEx" className="form-control" disabled={isNotEditMode} value={this.state.passwordOne} onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}></input>
-                                        <label for="materialFormRegisterPasswordEx">New password</label>
-                                    </div>
-                                </div>
-
-                                <div className="col-md-6">
-                                    <div className="md-form">
-                                        <i className="fa fa-lock prefix"></i>
-                                        <input type="password" id="materialFormRegisterPasswordEx" className="form-control" disabled={isNotEditMode} value={this.state.passwordTwo} onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}></input>
-                                        <label for="materialFormRegisterPasswordEx">Confirm password</label>
-                                    </div>
-                                </div>
                             </div>
+
+
                             <div className="row">
 
                                 <div className="col-md-6">

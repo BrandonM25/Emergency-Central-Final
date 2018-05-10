@@ -52,8 +52,13 @@ router.post("/createUser", function (req, res) {
 });
 
 router.post("/updateInfo", function (req, res) {
-    info.pullUserInfo(req.params.id, function (data) {
-        res.json(data);
+    db.User.update(req.body.user, {
+        where: {
+            userId: req.body.id
+        }
+    })
+    .then(function (dbUser) {
+        res.json(dbUser);
     });
 });
 
