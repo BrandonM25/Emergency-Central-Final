@@ -6,7 +6,7 @@ import { auth } from '../firebase';
 import AuthUserContext from '../authentication/AuthUserContext';
 import * as trueHome from '../pages/home';
 import * as homeRoute from '../pages/appHome';
-//import './Navbar.css'
+import './NavbarRegister.css'
 
 const superNavbar = withRouter(({ history }) =>
     <div>
@@ -77,7 +77,7 @@ class NavbarWithIntro extends React.Component {
 }
   
   render() {
-    const view = { background: 'url("https://images.unsplash.com/photo-1507105306461-47f75f2da3aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c3a9226dabffa306b261ea52c55cc954&auto=format&fit=crop&w=1950&q=80")no-repeat center center', backgroundSize: 'cover', height: '100vh', marginTop: '-56px' }
+    //const view = { background: 'url("https://images.unsplash.com/photo-1507105306461-47f75f2da3aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c3a9226dabffa306b261ea52c55cc954&auto=format&fit=crop&w=1950&q=80")no-repeat center center', backgroundSize: 'cover', height: '100vh', marginTop: '-56px' }
     
     const {
         email,
@@ -130,18 +130,18 @@ class NavbarWithIntro extends React.Component {
           </Navbar>
 
 
-          <View style={view}>
+          <div className="view">
 
             <Mask overlay="indigo-slight" style={{ flexDirection: 'column' }} className="flex-center text-right">
               <Container className="animated slideInRight">
                 <h1 className="font-weight-bold text-white">EMERGENCY <a className="central">CENTRAL</a></h1>
                 <h5 className="font-weight-bold text-white">A ONE CLICK APP THAT WILL ALLOW YOU TO CONTACT EMERGENCY SERVICES</h5>
-                <Link to="#">
+                <Link to="#about">
                   <Button size="lg" color="danger">Learn More</Button>
                 </Link>
               </Container>
             </Mask>
-          </View>
+          </div>
         </header>
       </div>
     );

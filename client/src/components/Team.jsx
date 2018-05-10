@@ -9,9 +9,9 @@ class Team extends React.Component {
                     <section className="team-section pb-5">
 
 
-                        <h2 className="h1 text-center py-5 sechead font-weight-bold">THE I.A.M TEAM</h2>
+                        <h2 className="h1-responsive text-center py-5 sechead font-weight-bold">THE I.A.M TEAM</h2>
 
-                        <h4 className="pb-2 text-center sechead font-weight-bold">We are a team of developers striving to make apps that will increase productivity in everyday life.</h4>
+                        <p className="lead grey-text text-center w-responsive mx-auto mb-5">We are a team of developers striving to make apps that will increase productivity in everyday life.</p>
 
                         <hr className="my-4"></hr>
 
