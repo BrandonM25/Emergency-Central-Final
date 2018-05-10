@@ -15,13 +15,16 @@ const twilioNumb = '+19319960010';
 const emergServices = '+19315059152';
 
 // Line of code that handles the html routes or any invalid paths entered
-router.get("/getInfo", function (req, res) {
+router.post("/getInfo", function (req, res) {
+    console.log(req.body);
     db.User.findOne({
         where: {
             userId: req.body.id
         }
-    }, function (data) {
-        console.log(data);
+    })
+    .then(function (dbUser) {
+        console.log(dbUser.dataValues);
+        res.json(dbUser.dataValues);
     });
 });
 
@@ -49,8 +52,13 @@ router.post("/createUser", function (req, res) {
 });
 
 router.post("/updateInfo", function (req, res) {
-    info.pullUserInfo(req.params.id, function (data) {
-        res.json(data);
+    db.User.update(req.body.user, {
+        where: {
+            userId: req.body.id
+        }
+    })
+    .then(function (dbUser) {
+        res.json(dbUser);
     });
 });
 
