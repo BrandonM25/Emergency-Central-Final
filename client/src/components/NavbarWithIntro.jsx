@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, Container, Mask, Button, Input } from 'mdbreact';
 import { Link,
         withRouter, } from 'react-router-dom';
