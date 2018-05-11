@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, Container, Mask, View, Row, Col, Card, CardBody, CardImage, CardText, CardTitle, Button, Input, Jumbotron, } from 'mdbreact';
+import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, Container, Button, Input, Jumbotron, } from 'mdbreact';
 import {
     Link,
     withRouter,
@@ -138,7 +138,7 @@ class NavbarRegister extends React.Component {
 
 
     render() {
-        const view = { background: 'url("https://images.unsplash.com/photo-1507105306461-47f75f2da3aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c3a9226dabffa306b261ea52c55cc954&auto=format&fit=crop&w=1950&q=80")no-repeat center center', backgroundSize: 'cover', height: '100vh', marginTop: '-56px' }
+        //const view = { background: 'url("https://images.unsplash.com/photo-1507105306461-47f75f2da3aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c3a9226dabffa306b261ea52c55cc954&auto=format&fit=crop&w=1950&q=80")no-repeat center center', backgroundSize: 'cover', height: '100vh', marginTop: '-56px' }
 
         const {
             email,

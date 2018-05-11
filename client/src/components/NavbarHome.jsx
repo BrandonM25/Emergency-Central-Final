@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, Container, Mask, View, Row, Col, Card, CardBody, CardImage, CardText, CardTitle, Button, Input } from 'mdbreact';
+import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, Container, Mask, Row, Col, Button } from 'mdbreact';
 import { Link,
         withRouter, } from 'react-router-dom';
 import { auth, firebase } from '../firebase';

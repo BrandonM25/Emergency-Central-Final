@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, Container, Mask, View, Row, Col, Card, CardBody, CardImage, CardText, CardTitle, Button, Input } from 'mdbreact';
+import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Container, Mask, Row, Col, Card, CardBody, Button, Input } from 'mdbreact';
 import {
     Link,
     withRouter,

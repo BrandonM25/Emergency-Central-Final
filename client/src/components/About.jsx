@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Container, Row, Col } from 'mdbreact';
+import { Container } from 'mdbreact';
 import './About.css'
 
 class About extends Component {

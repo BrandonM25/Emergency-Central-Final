@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, Container, Mask, View, Row, Button, FormInline, Input } from 'mdbreact';
+import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, Container, Mask, Button, Input } from 'mdbreact';
 import { Link,
         withRouter, } from 'react-router-dom';
 import { auth } from '../firebase';
 import AuthUserContext from '../authentication/AuthUserContext';
 import * as trueHome from '../pages/home';
 import * as homeRoute from '../pages/appHome';
-import './NavbarRegister.css'
+//import './NavbarRegister.css'
 
 const superNavbar = withRouter(({ history }) =>
     <div>
