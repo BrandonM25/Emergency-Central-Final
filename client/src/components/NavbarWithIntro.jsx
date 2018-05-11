@@ -6,7 +6,7 @@ import { auth } from '../firebase';
 import AuthUserContext from '../authentication/AuthUserContext';
 import * as trueHome from '../pages/home';
 import * as homeRoute from '../pages/appHome';
-//import './NavbarRegister.css'
+import './NavbarRegister.css'
 
 const superNavbar = withRouter(({ history }) =>
     <div>
