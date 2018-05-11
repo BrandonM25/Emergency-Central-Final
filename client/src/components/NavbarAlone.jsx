@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Container, Mask, Row, Col, Card, CardBody, Button, Input } from 'mdbreact';
+import React from 'react';
+import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, Container, Mask, Row, Col, Card, CardBody, Button, Input } from 'mdbreact';
 import {
     Link,
     withRouter,
