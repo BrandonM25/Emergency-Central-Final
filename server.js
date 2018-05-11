@@ -13,6 +13,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Establishing the bodyparser middleware to help parse json
 app.use(bodyParser.json());
 
+app.use(express.static("client/build"));
+
 // Import routes and give the server access to them.
 var routes = require("./server/controllers/controllers.js");
 app.use("/", routes);
