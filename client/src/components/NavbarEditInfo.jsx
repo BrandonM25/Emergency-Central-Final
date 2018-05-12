@@ -7,7 +7,6 @@ import {
 import { firebase, auth } from '../firebase';
 import * as homeRoute from '../pages/appHome';
 import AuthUserContext from '../authentication/AuthUserContext';
-//import './NavbarRegister.css'
 import './NavbarEditInfo.css'
 import axios from 'axios';
 
@@ -257,7 +256,7 @@ class NavabarEditInfo extends React.Component {
                                     <div className="md-form">
                                         <i className="fa fa-user prefix"></i>
                                         <input type="text" id="materialFormRegisterNameEx" className="form-control" disabled={isNotEditMode} value={this.state.firstName} onChange={event => this.setState(byPropKey('firstName', event.target.value))}></input>
-                                        <label  classname="label" for="materialFormRegisterNameEx">First Name</label>
+                                        <label  className="label" for="materialFormRegisterNameEx">First Name</label>
                                     </div>
 
                                 </div>
@@ -267,7 +266,7 @@ class NavabarEditInfo extends React.Component {
                                     <div className="md-form">
                                         <i className="fa fa-user prefix"></i>
                                         <input type="text" id="materialFormRegisterNameEx" className="form-control" disabled={isNotEditMode} value={this.state.lastName} onChange={event => this.setState(byPropKey('lastName', event.target.value))}></input>
-                                        <label classname="label" for="materialFormRegisterNameEx">Last Name</label>
+                                        <label className="label" for="materialFormRegisterNameEx">Last Name</label>
                                     </div>
 
                                 </div>
@@ -278,7 +277,7 @@ class NavabarEditInfo extends React.Component {
                                     <div className="md-form">
                                         <i className="fa fa-user prefix"></i>
                                         <input type="text" id="materialFormRegisterNameEx" className="form-control" disabled={isNotEditMode} value={this.state.age} onChange={event => this.setState(byPropKey('age', event.target.value))}></input>
-                                        <label classname="label" for="materialFormRegisterNameEx">Age</label>
+                                        <label className="label" for="materialFormRegisterNameEx">Age</label>
                                     </div>
 
                                 </div>
@@ -288,7 +287,7 @@ class NavabarEditInfo extends React.Component {
                                     <div className="md-form">
                                         <i className="fa fa-user prefix"></i>
                                         <input type="text" id="materialFormRegisterNameEx" className="form-control" disabled={isNotEditMode} value={this.state.sex} onChange={event => this.setState(byPropKey('sex', event.target.value))}></input>
-                                        <label classname="label" for="materialFormRegisterNameEx">Sex</label>
+                                        <label className="label" for="materialFormRegisterNameEx">Sex</label>
                                     </div>
 
                                 </div>
@@ -299,7 +298,7 @@ class NavabarEditInfo extends React.Component {
                                     <div className="md-form">
                                         <i className="fa fa-envelope prefix"></i>
                                         <input type="email" id="materialFormRegisterEmailEx" className="form-control" disabled={isNotEditMode} value={this.state.email} onChange={event => this.setState(byPropKey('email', event.target.value))}></input>
-                                        <label classname="label" for="materialFormRegisterEmailEx">Your email</label>
+                                        <label className="label" for="materialFormRegisterEmailEx">Your email</label>
                                     </div>
                                 </div>
                             </div>
@@ -311,7 +310,7 @@ class NavabarEditInfo extends React.Component {
                                     <div className="md-form">
                                         <i className="fa fa-phone prefix"></i>
                                         <input type="text" id="materialFormRegisterNameEx" className="form-control" disabled={isNotEditMode} value={this.state.phoneNumber} onChange={event => this.setState(byPropKey('phoneNumber', event.target.value))}></input>
-                                        <label classname="label" for="materialFormRegisterNameEx">Phone Number</label>
+                                        <label className="label" for="materialFormRegisterNameEx">Phone Number</label>
                                     </div>
                                 </div>
 
@@ -322,7 +321,7 @@ class NavabarEditInfo extends React.Component {
                                     <div className="md-form">
                                         <i className="fa fa-pencil prefix"></i>
                                         <textarea type="text" id="textareaPrefix" className="form-control md-textarea" rows="3" disabled={isNotEditMode} value={this.state.medicalHistory} onChange={event => this.setState(byPropKey('medicalHistory', event.target.value))}></textarea>
-                                        <label classname="label" for="textareaPrefix">Medical History</label>
+                                        <label className="label" for="textareaPrefix">Medical History</label>
                                     </div>
                                 </div>
                             </div>
@@ -331,7 +330,7 @@ class NavabarEditInfo extends React.Component {
                                     <div className="md-form">
                                         <i className="fa fa-pencil prefix"></i>
                                         <textarea type="text" id="textareaPrefix" className="form-control md-textarea" rows="3" disabled={isNotEditMode} value={this.state.currentMedications} onChange={event => this.setState(byPropKey('currentMedications', event.target.value))}></textarea>
-                                        <label classname="label" for="textareaPrefix">Current Medications</label>
+                                        <label className="label" for="textareaPrefix">Current Medications</label>
                                     </div>
                                 </div>
                             </div>
@@ -340,7 +339,7 @@ class NavabarEditInfo extends React.Component {
                                     <div className="md-form">
                                         <i className="fa fa-pencil prefix"></i>
                                         <textarea type="text" id="textareaPrefix" className="form-control md-textarea" rows="3" disabled={isNotEditMode} value={this.state.allergies} onChange={event => this.setState(byPropKey('allergies', event.target.value))}></textarea>
-                                        <label classname="label" for="textareaPrefix">Allergies</label>
+                                        <label className="label" for="textareaPrefix">Allergies</label>
                                     </div>
                                 </div>
                             </div>
@@ -349,14 +348,14 @@ class NavabarEditInfo extends React.Component {
                                     <div className="md-form">
                                         <i className="fa fa-medkit prefix"></i>
                                         <input type="text" id="inputMDEx" className="form-control" disabled={isNotEditMode} value={this.state.doctorName} onChange={event => this.setState(byPropKey('doctorName', event.target.value))}></input>
-                                        <label classname="label" for="inputMDEx">Physician's Name</label>
+                                        <label className="label" for="inputMDEx">Physician's Name</label>
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="md-form">
                                         <i className="fa fa-medkit prefix"></i>
                                         <input type="text" id="inputMDEx" className="form-control" disabled={isNotEditMode} value={this.state.hospitalChoice} onChange={event => this.setState(byPropKey('hospitalChoice', event.target.value))}></input>
-                                        <label classname="label" for="inputMDEx">Hospital of choice</label>
+                                        <label className="label" for="inputMDEx">Hospital of choice</label>
                                     </div>
                                 </div>
                             </div>
@@ -366,14 +365,14 @@ class NavabarEditInfo extends React.Component {
                                     <div className="md-form">
                                         <i className="fa fa-user prefix"></i>
                                         <input type="text" id="inputMDEx" className="form-control" disabled={isNotEditMode} value={this.state.emergencyContact} onChange={event => this.setState(byPropKey('emergencyContact', event.target.value))}></input>
-                                        <label classname="label" for="inputMDEx">First/Last Name</label>
+                                        <label className="label" for="inputMDEx">First/Last Name</label>
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="md-form">
                                         <i className="fa fa-phone prefix"></i>
                                         <input type="text" id="inputMDEx" className="form-control" disabled={isNotEditMode} value={this.state.emergencyNumber} onChange={event => this.setState(byPropKey('emergencyNumber', event.target.value))}></input>
-                                        <label classname="label" for="inputMDEx">Phone Number</label>
+                                        <label className="label" for="inputMDEx">Phone Number</label>
                                     </div>
                                 </div>
                             </div>
