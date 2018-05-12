@@ -5,8 +5,8 @@
     "client": "cd client && yarn start",
     "dev": "concurrently --kill-others-on-fail \"node server.js\" \"yarn client\"",
     "build": "cd client && yarn install && yarn build",
-    "start": "yarn build & node server.js",
-    "postinstall": "bower install && webpack build"
+    "start": "yarn build & node server.js"
+  
   },
   "dependencies": {
     "axios": "^0.18.0",
